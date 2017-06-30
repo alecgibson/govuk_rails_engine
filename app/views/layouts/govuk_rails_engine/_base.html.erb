@@ -1,0 +1,85 @@
+<% content_for :homepage_url, Plek.new.website_root %>
+<% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
+<!--TODO: Put back emergency banner-->
+
+<% if ENV["DRAFT_ENVIRONMENT"].present? %>
+  <% content_for :body_classes, "draft" %>
+<% end %>
+
+<% content_for :head do %>
+  <%= render :partial => 'layouts/govuk_rails_engine/stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'govuk_rails_engine/static' } %>
+<% end %>
+
+<% content_for :inside_header do %>
+  <a href="#search" class="search-toggle js-header-toggle">Search</a>
+
+  <form id="search" class="site-search" action="/search" method="get" role="search">
+    <div class="content">
+      <label for="site-search-text">Search</label>
+      <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus">
+      <input class="submit" type="submit" value="Search" />
+    </div>
+  </form>
+<% end %>
+
+<% content_for :after_header do %>
+  <div id="user-satisfaction-survey-container"></div>
+  <!--TODO: Put back emergency banner-->
+<% end %>
+
+<% content_for :content do %>
+  <div id="wrapper" class="group">
+    <%= yield :wrapper_content %>
+  </div>
+<% end %>
+
+<% content_for :footer_top do %>
+  <% unless local_assigns[:hide_footer_links] %>
+    <div class="footer-categories">
+      <div class="footer-explore">
+        <h2>Services and information</h2>
+
+        <ul>
+          <li><a href="/browse/benefits">Benefits</a></li>
+          <li><a href="/browse/births-deaths-marriages">Births, deaths, marriages and care</a></li>
+          <li><a href="/browse/business">Business and self-employed</a></li>
+          <li><a href="/browse/childcare-parenting">Childcare and parenting</a></li>
+          <li><a href="/browse/citizenship">Citizenship and living in the UK</a></li>
+          <li><a href="/browse/justice">Crime, justice and the law</a></li>
+          <li><a href="/browse/disabilities">Disabled people</a></li>
+          <li><a href="/browse/driving">Driving and transport</a></li>
+        </ul>
+        <ul>
+          <li><a href="/browse/education">Education and learning</a></li>
+          <li><a href="/browse/employing-people">Employing people</a></li>
+          <li><a href="/browse/environment-countryside">Environment and countryside</a></li>
+          <li><a href="/browse/housing-local-services">Housing and local services</a></li>
+          <li><a href="/browse/tax">Money and tax</a></li>
+          <li><a href="/browse/abroad">Passports, travel and living abroad</a></li>
+          <li><a href="/browse/visas-immigration">Visas and immigration</a></li>
+          <li><a href="/browse/working">Working, jobs and pensions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-inside-government">
+        <h2>Departments and policy</h2>
+
+        <ul>
+          <li><a href="/government/how-government-works">How government works</a></li>
+          <li><a href="/government/organisations">Departments</a></li>
+          <li><a href="/government/world">Worldwide</a></li>
+          <li><a href="/government/policies">Policies</a></li>
+          <li><a href="/government/publications">Publications</a></li>
+          <li><a href="/government/announcements">Announcements</a></li>
+        </ul>
+      </div>
+      <hr>
+    </div>
+  <% end %>
+<% end %>
+<% content_for :footer_support_links do %>
+  <%= render :partial => "layouts/govuk_rails_engine/footer_support_links" %>
+<% end %>
+<% content_for :body_end do %>
+  <%= render :partial => 'layouts/govuk_rails_engine/javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } %>
+<% end %>

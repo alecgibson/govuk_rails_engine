@@ -1,0 +1,122 @@
+/* Global print stylesheet */
+html {
+  font-size: 62.5%;
+}
+
+main > header {
+  position: relative;
+
+  h1 {
+    @include bold-24;
+    border-bottom: solid 1pt black;
+    padding-bottom: 6pt;
+    width: 80%;
+  }
+
+  p {
+    @include core-14;
+    border-bottom: solid 1pt black;
+    bottom: -11pt;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 6pt;
+    right: 0;
+    width: 15%;
+  }
+}
+
+.content-block,
+article {
+  margin-bottom: 1cm;
+  width: 80%;
+
+  .info-notice {
+    page-break-after: avoid;
+  }
+
+  header h1 {
+    @include bold-19;
+    border-bottom: 1pt solid $border-colour;
+    padding-top: 7pt;
+    padding-bottom: 7pt;
+  }
+
+  table {
+    td:first-child ~ td {
+      text-align: right;
+    }
+  }
+
+  select {
+    background: white;
+  }
+
+  .contact,
+  .info-notice,
+  .help-notice {
+    border: 1pt solid $border-colour;
+    padding: 2pt;
+    margin: 14pt 0;
+  }
+
+  .info-notice p,
+  .help-notice p {
+    margin-left: $gutter;
+    position: relative;
+
+    &:before {
+      @include core-27;
+      font-weight: bold;
+      content: "!";
+      position: absolute;
+      top: -2px;
+      left: -18px;
+    }
+  }
+
+  .highlight-answer,
+  .highlighted-event {
+    p {
+      @include core-19;
+
+      em {
+        font-style: normal;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.modified-date {
+  color: rgb(225,225,225);
+  @include core-14;
+
+  &:after {
+    content: "\00A9  Crown Copyright";
+    float: right;
+  }
+}
+
+/* hide the unnecessary page elements */
+body #global-user-location,
+body .related-positioning,
+header.page-header div h1 span,
+header nav,
+body .actions,
+#local-locator-form,
+#location-loading,
+#get-started,
+.finding_location,
+.found_location,
+.loading_location,
+.location_error,
+.done-questions .start-again,
+.done-questions .question-number,
+.done-questions li.done .undo,
+.player-container,
+.video-transcript-toggle
+.show-all-parts,
+.return-to-top {
+  display: none !important;
+}

@@ -1,0 +1,38 @@
+.govuk-taxonomy-sidebar {
+  border-top: 10px solid $mainstream-brand;
+  padding-bottom: $gutter * 2;
+  @include core-16;
+
+  .sidebar-taxon {
+    padding-top: 1.25em;
+
+    h2 {
+      @include bold-24;
+      margin: 0 0 5px;
+    }
+
+    .taxon-description {
+      @include core-16;
+      margin: 0;
+    }
+
+    .related-content {
+      @include core-16;
+      margin: 0 0 0 15px;
+      padding: 0;
+
+      li {
+        // Scale the bullets down in size using this variable, and
+        // then scale the text back up by the reciprocal
+        $bullet-fraction: 0.75;
+        font-size: #{$bullet-fraction}em;
+
+        a {
+          display: block;
+          font-size: #{1 / $bullet-fraction}em;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

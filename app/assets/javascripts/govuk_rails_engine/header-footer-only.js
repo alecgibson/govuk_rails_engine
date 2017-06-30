@@ -1,0 +1,13 @@
+//= require govuk_rails_engine/libs/jquery/plugins/jquery.base64
+//= require vendor/polyfills/bind
+//= require govuk_rails_engine/analytics
+//= require govuk_rails_engine/start-modules
+//= require govuk_rails_engine/core
+//= require govuk_rails_engine/report-a-problem-form
+//= require govuk_rails_engine/report-a-problem
+//= require govuk/selection-buttons
+//= require govuk_rails_engine/govuk-component/govspeak-enhance-youtube-video-links
+//= require govuk_rails_engine/libs/govuk-component/govspeak-magna-charta.min
+//= require govuk_rails_engine/govuk-component/govspeak-convert-html-pub-charts
+//= require govuk_rails_engine/govuk-component/option-select
+//= require govuk/shim-links-with-button-role

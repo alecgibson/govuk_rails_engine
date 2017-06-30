@@ -1,0 +1,30 @@
+.js-enabled .govuk-sticky-element {
+  position: absolute;
+  bottom: 0;
+
+  &--stuck-to-window {
+    bottom: 0;
+    position: fixed;
+  }
+
+  &--enabled {
+    @include transition (opacity, .3s, ease);
+    opacity: 1;
+
+    @include media(mobile) {
+      position: static;
+    }
+  }
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    @include ie-lte(8) {
+      // XXX: Would be nice to `@include .visuallyhidden`.
+      position: absolute;
+      left: -9999em;
+    }
+  }
+
+}
